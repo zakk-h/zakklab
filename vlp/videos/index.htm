@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Video Center</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,600&display=swap');
+    .center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 20%;
+   }
+   :root{
+       --red: hsl(0, 78%, 62%);
+       --cyan: hsl(180, 62%, 55%);
+       --orange: hsl(34, 97%, 64%);
+       --blue: hsl(212, 86%, 64%);
+       --dark-blue: hsl(234, 12%, 34%);
+       --grey-blue: hsl(229, 6%, 66%);
+       --light-grey: hsl(0, 0%, 98%);
+   
+   }
+   
+   body{
+       background-color:var(--light-grey);
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       flex-direction:column;
+       font-family:'Poppins', sans-serif;
+       width:100vw;
+       font-size:15px;
+   }
+   
+   .main-text{
+       text-align:center;
+   }
+   
+   h1{
+       font-weight:200;
+       font-size:2em;
+       margin-bottom:0px;
+       color:var(--dark-blue);
+   }
+   
+   h2{
+       font-weight:600;
+       font-size:2em;
+       margin-top:0px;
+       margin-bottom:0px;
+       color:var(--dark-blue);
+   }
+   
+   p{
+       font-weight:200;
+       font-size:1.1em;
+       margin-top:5px;
+       color:var(--grey-blue);
+   }
+   
+   .boxes {
+       display: flex;
+       vertical-align: middle; 
+       flex-direction: row;
+       margin-top: 30px;
+       margin-left: auto;
+       margin-right: auto;
+       height: 100%;
+       padding: 0;
+       margin: 0;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     
+   }
+   
+   .cards{
+       width:328px;
+       height:235px;
+       background-color:white;
+       border-radius:10px;
+       padding:0px 30px 30px 30px;
+       box-shadow: 0px 2px 15px 0px var(--grey-blue);
+       
+   }
+   
+   .stack {
+       display:flex;
+       flex-direction: column;
+       margin-left:75px;
+   }
+   
+   .supervisor {
+       border-top: 5px solid var(--red);
+       align-self: center;
+       margin-bottom: 30px;
+       margin-left:-40px;
+   
+   }
+   
+   .team-builder{
+       border-top:6px solid var(--cyan);
+       margin-bottom:15px;
+       margin-left:-40px;
+   
+   
+   }
+   
+   .calculator{
+       border-top:5px solid var(--orange);
+       align-self:center;
+       margin-left:-40px;
+       
+   }
+   
+   .karma{
+       border-top:5px solid var(--blue);
+       align-self:center;
+       margin-top:15px;
+       margin-left:-40px;
+    
+   
+   }
+   
+   .icon{
+       position:relative;
+       width:100px;
+       height:100px;
+       float:right;
+       margin-bottom:-40px;
+       margin-left:-40px;
+   
+   }
+   
+   .cards h3{
+       color:var(--dark-blue);
+       font-size:1.5em;
+       font-weight:600;
+   }
+   
+   .cards p{
+       color:var(--grey-blue);
+       font-weight:400;
+       line-height:1.75em;
+       font-size:1em;
+       margin-top:-10px;
+   }
+   
+   @media screen and (max-width: 1000px) {
+       .boxes {
+          flex-direction: column;
+       }
+       .supervisor,
+       .karma,
+       .team-builder,
+       .calculator {
+          margin: 0 0 15px 0;
+       }
+     
+     } 
+</style>
+</head>
+<body>
+  <div class="main-text">
+      <h1>Valdese Lakeside Park</h1>
+      <h4>Video Center</h4>
+  </div>
+          <img src="https://cdn-icons-png.flaticon.com/512/92/92341.png" class="center"></img>
+<div class="boxes">
+    <div class="stack">
+    <a href="https://youtube.com/playlist?list=PLMbeemD8NX-8_v5CxJ5XGqjFhnslDSzZA" target="_blank">
+    <div class="cards supervisor">
+         <div class="contents">
+         <h3>Wildlife</h3>
+         <p>View all animals spotted and recorded at VLP.</p>
+         <img src="https://cdn-icons-png.flaticon.com/512/185/185715.png" class="icon magnify"></img>
+
+        </div>
+
+     </div>
+    </a>
+    <a href="https://youtube.com/playlist?list=PLMbeemD8NX-_LGdfg9dDZRqrQXG-SSzV2" target="_blank">
+        <div class="cards calculator">
+                <div class="contents">
+                    <h3>Trails</h3>
+                <p>View trail walkthroughs, guides, and information in video form.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/3273/3273172.png" class="icon calc"></img>
+               </div>
+        </div>
+       </a>
+    </div>
+     <div class="stack">
+        <a href="https://youtube.com/playlist?list=PLMbeemD8NX--VIcVyWb7sb6QxlezMTQo2" target="_blank">
+     <div class="cards team-builder">
+         <div class="contents">
+             <h3>Amenities</h3>
+             <p>Watch information about the amenities at VLP.</p>
+             <img src="https://cdn-icons-png.flaticon.com/512/171/171253.png"class="icon builder"></img>
+            </div>
+     </div>
+    </a>
+
+     <a href="https://youtube.com/playlist?list=PLMbeemD8NX-_MEbD4TL2jUiy1FJhVrtYj" target="_blank">
+     <div class="cards karma">
+         <div class="contents">
+             <h3>Construction</h3>
+             <p>View videos on construction progress.</p>
+             <img src="data:image/png;base64,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" class="icon bulb"></img>
+            </div>
+     </div>
+    </a>
+
+  </div>
+  <div class="stack">
+    <a href="https://youtube.com/playlist?list=PLMbeemD8NX-9kwc56gxhxIgNbUW_QFPGA" target="_blank">
+    <div class="cards supervisor">
+         <div class="contents">
+         <h3>Aerials</h3>
+         <p>View Aerial Videos taken at Valdese Lakeside Park.</p>
+         <img src="https://cdn-icons-png.flaticon.com/512/1830/1830867.png" class="icon magnify"></img>
+
+        </div>
+
+     </div>
+    </a>
+    <a href="https://youtube.com/playlist?list=PLMbeemD8NX-_VKQnR-Cn47mpqn65tGBGI" target="_blank">
+        <div class="cards calculator">
+                <div class="contents">
+                    <h3>Misc</h3>
+                <p>Browse other uncategorized videos.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/719/719755.png" class="icon calc"></img>
+               </div>
+        </div>
+       </a>
+    </div>
+
+  </div>
+
+<script>
+</script>    
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+:root {
+  --headerOpacity: 1;
+  --headerScale: 1;
+}
+
+.video-header {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+.video-header, .video-header video, .video-header .viewport-header {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video-header video {
+  background: brown;
+  object-fit: cover;
+}
+.video-header .viewport-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  opacity: var(--headerOpacity);
+  transform: scale(var(--headerScale));
+}
+
+html, body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 150%;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Syncopate', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3vw;
+  line-height: 1.2;
+  font-size: 3vw;
+  text-align: center;
+}
+h1 span {
+  display: block;
+  font-size: 10vw;
+  letter-spacing: -1.3vw;
+}
+
+main {
+  background: white;
+  position: relative;
+  padding: 1rem;
+  margin-top: 100vh;
+}
+main::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: -100vh;
+}
+main p {
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+body {background-color: #B8B8B8;}
+
+
+  body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: top;
+  top: 20%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 12px;
+  position: absolute;
+  top: 50px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 0px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 1.0;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+img.ilbox {
+width:100%;
+max-width:800px;
+}
+#box {
+  /* Prevent vertical gaps */
+  line-height: 5;
+  -webkit-column-count: 2;
+  -webkit-column-gap:   30px;
+  -moz-column-count:    2;
+  -moz-column-gap:      30px;
+  column-count:         2;
+  column-gap:           30px;  
+}
+
+#box img {
+  /* Just in case there are inline attributes */
+  width:100% !important;
+max-width:800px !important;
+}
+
+
+@media (max-width: 2000px) {
+  #box {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 800px) {
+  #box {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
+
+</style>
+<title>About VLP</title>
+</head>
+<script>
+  var viewportHeader = document.querySelector(".viewport-header");
+
+document.body.addEventListener("scroll", function(event) {
+  var opacity = (document.body.offsetHeight - document.body.scrollTop) / document.body.offsetHeight;
+  var scale = (document.body.offsetHeight - document.body.scrollTop) / document.body.offsetHeight;
+  document.documentElement.style.setProperty('--headerOpacity', opacity);
+  document.documentElement.style.setProperty('--headerScale', scale);
+});
+
+</script>
+<body>
+  <header class="video-header">
+    <video src="https://www.youtube.com/watch?v=DL2rZ-fjwcg" autoplay loop playsinline muted></video>
+    <div class="viewport-header">
+      <h1>
+        <span>V L P</span>
+        <span>Creeks</span>
+      </h1>
+    </div>
+  </header>
+  
+  <main>
+   <h1>About VLP</h1>
+ Morganton City Manager Sally Sandy was more than ready for the visit from the Burke River Trail planning team which included Representative Blackwell, Western Piedmont Council of Governments (WPCOG) GIS Analyst Todd Stroupe and Friends of the Valdese Rec President Beth Heile. The City of Morganton had explored the idea of expanding the Catawba River Greenway to the east in the past and Sandy’s staff was full of ideas and route suggestions. The greenway continuation is in line with the Burke River Trail that Representative Blackwell is spearheading with the goal of improving the health of citizens and the health of local economies.
+
+From the Greenway’s Rocky Ford access, stakeholders participating in the WPCOG’s trail feasibility study had been weighing the options of taking the trail north or south of the river. Just before the City of Morganton meeting, Heile spoke to a representative with the North Carolina Wildlife Resource Commission and learned taking the trail across the state game lands on the north side of the river would not be allowed. With north no longer an option, it was welcome news that Morganton supported the southern route.
+
+pr-Greenway-logo-150px1City of Morganton Project Designer Michael Berley suggested the Burke River Trail be a true extension of the Catawba River Greenway and thus carry the name for the entire proposed route of the approximately 25 miles. Sandy added, “Using the Catawba River Greenway name instead of Burke River Trail would facilitate in marketing the trail as a substantial recreational draw for tourists and those looking to relocate.”
+
+Heile said, “Burke River Trail was always a working title. I am pleased that the City of Morganton would like to use the Catawba River Greenway name for the entire route. Sections along the path can still have their own name. Just as the Catawba River Greenway is a part of the North Carolina Birding Trail, the Rhodhiss Horseshoe Trail will be a part of the Catawba River Greenway.
+
+
+
+In Drexel, the team met with Town Manager Sherri Bradshaw. As a way to showcase downtown, a connector path from the river to Main Street was considered as a route for hikers to catch a bluegrass jam session at the famous Drexel Barber Shop and relax at Downtown Park. From there, Howard Creek could be a possible return path. Town of Drexel is currently working to clean up the old Drexel Heritage Furniture site on Main Street for future development. Having access to a regional trail will be a quality of life feature to entice manufacturers to choose Drexel. Bradshaw is excited for Drexel to be a part of the trail discussions and is willing to host a socially distanced in person meeting for stakeholders at the R.O. Huffman Center when the time is right. Since July, meetings have been held online due to inside gathering restrictions. The goal is to reveal the final trail corridor to the public with a display of maps and discussion.
+
+Stroupe will take the route suggestions from these meetings and update the proposed trail corridor. “After meeting with the municipalities, the trail is shaping up. We started with several locations on a map, and the route’s alignment is becoming easier to see,” Stroupe commented regarding the process.
+  </main>
+  
+  <div id="circle"></div>
+
+
+
+
+
+
+ 
+<h1>About VLP</h1>
+  <p></p>
+  <section id ="box">
+<a target="_blank" href="app/">
+<img src="/files/map.jpg" alt="App" class="ilbox">
+</a>
+<a href="smart-install/">
+<img src="/files/slide1.jpg" alt="Install" class="ilbox">
+</a>
+<a href = "/vlp/wildlife/">
+<img src="/files/turtle.jpg" alt="Wildlife" class="ilbox">
+</a>  
+<a href = "/vlp/landmarks/">
+<img src="/files/landmarks.jpg" alt="Landmarks" class="ilbox">
+</a>  
+</section>
+</body>

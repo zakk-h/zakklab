@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background-color: #939598;
+    }
+
+    img.ilbox {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 25px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    .mySlides1,
+    .mySlides2,
+    .mySlides3,
+    .mySlides4,
+    .mySlides5,
+    .mySlides6,
+    .mySlides7,
+    .mySlides8,
+    .mySlides9 {
+      display: none
+    }
+
+    img {
+      vertical-align: middle;
+width: 100%;
+height: 50%;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 0%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: black;
+      background-color: black;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a grey background color */
+    .prev:hover,
+    .next:hover {
+      background-color: #00B606;
+      color: #00B606;
+    }
+
+
+
+
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+
+
+
+    video {
+      object-fit: cover;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 150%;
+      line-height: 1.4;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .viewport-header {
+      position: relative;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-family: 'Syncopate', sans-serif;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.8vw;
+      line-height: 1.2;
+      font-size: 3vw;
+      text-align: center;
+      /*span: {
+    display: block;
+    font-size: 10vw;
+    letter-spacing: -1.3vw;
+  }*/
+    }
+
+    main {
+      background: rgba(black, 0.66);
+      color: white;
+      position: relative;
+      padding: 1rem;
+
+      max-width: 100%;
+      margin: 1rem auto;
+      
+    }
+   
+ 
+ 
+    #myBtn {
+			display: none; /* Hidden by default */
+			position: fixed; /* Fixed/sticky position */
+			bottom: 20px; /* Place the button at the bottom of the page */
+			right: 30px; /* Place the button 30px from the right */
+			z-index: 99; /* Make sure it does not overlap */
+			border: solid; /* Remove borders */
+			outline: none; /* Remove outline */
+			background-color: #2272AD; /* Set a background color */
+			color: white; /* Text color */
+			cursor: pointer; /* Add a mouse pointer on hover */
+			padding: 15px; /* Some padding */
+			border-radius: 10px; /* Rounded corners */
+			font-size: 18px; /* Increase font size */
+			}
+			#myBtn:hover {
+			background-color: #000000; /* Add a dark-grey background on hover */
+			}
+  </style>
+
+  <title>VLP Landmarks & Sightseeing</title>
+</head>
+
+<body>
+ 
+<script type="text/javascript"> 
+  setTimeout(function () { 
+
+    // Closing the alert 
+    $('#alert').alert('close'); 
+  }, 13000); 
+</script> 
+
+
+  <header class="viewport-header">
+    <h1>
+      VLP
+
+      <span>Points of Interest</span>
+
+
+
+    </h1>
+  </header>
+  <p>&nbsp;</p>
+  <p></p>
+  <p>&nbsp;</p>
+  <p></p>
+
+  <main>
+    <script>
+      //Above 1 line 		<button onclick="topFunction()" id="myBtn" title="Go to Top">Go to Top</button>
+      //Get the button
+      /*var mybutton = document.getElementById("myBtn");
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      */
+      
+      </script>
+   <p></p>
+   <h1>VLP Core</h1>
+
+   <p>The main entrance to Valdese Lakeside Park features a 50 space parking lot, bathrooms, picnic area, and dog park.</p>
+   <div class="slideshow-container">
+     <div class="mySlides0">
+       <img src="/files/landmarks/core1.jpeg" style="width:100%">
+     </div>
+
+     <div class="mySlides0">
+       <img src="/files/landmarks/core2.jpg" style="width:100%">
+     </div>
+     <div class="mySlides0">
+       <img src="https://bloximages.newyork1.vip.townnews.com/morganton.com/content/tncms/assets/v3/editorial/c/7a/c7a29bde-e2b3-11ec-93d2-073e6727e7f8/62991f77c3766.image.jpg?resize=750%2C500" style="width:100%">
+     </div>
+
+     <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+     <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+   </div>
+
+   <p></p>
+
+    <h1>Meditation Point</h1>
+
+    <p>Amazing Lake View with Table Rock and Hawksbill Mountains</p>
+    <p>Amazing Sunsets</p>
+    <p>Wildlife Viewing Platform</p>
+    <!-- Showing alert -->
+
+    <div class="slideshow-container">
+      <div class="mySlides1">
+        <img src="/files/pointview.jpg" style="width:100%">
+
+      </div>
+
+      <div class="mySlides1">
+        <img src="/files/landmarks/viewingplatform.jpg" style="width:100%">
+      </div>
+      
+      <div class="mySlides1">
+        <img src="/files/landmarks/pointviewmap.jpg" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+    </div>
+    <div id="alert" class="alert alert-info"> 
+      Use the left and right arrows to scroll through the slideshow.
+    </div> 
+    <p></p>
+    <h1>Picnic Area</h1>
+
+    <p>4 Picnic Tables were built by Kellex Seating.</p>
+    <p>Tables offer different scenery - either the greenway and garden or lake</p>
+    <p>Fish and otters are often spotted at the bottom table.</p>
+    <div class="slideshow-container">
+      <div class="mySlides2">
+        <img src="/files/picnic.jpg" style="width:100%">
+
+      </div>
+
+      <div class="mySlides2">
+        <img src="/files/landmarks/picnicmap.png" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Fox Den</h1>
+
+    <p>Easy Trail down to the water - 0.05 Miles</p>
+    <p>About 70 years ago, young men visited this spot to fish, sit by the fire and have a Pepsi. They would come in
+      what is now Laurel Rd.</p>
+    <p>A great blue heron is often spotted along with other birds including eggrets, and otters. To see the Blue Heron
+      visit my wildlife page.</p>
+    <div class="slideshow-container">
+      <div class="mySlides3">
+        <img src="/files/den.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides3">
+        <img src="/files/landmarks/foxdenmap.png" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Bridge</h1>
+
+    <p>A 150 foot suspension bridge connects Valdese Lakeside Park to McGalliard Falls Park through a 2-mile Greenway.</p>
+    <div class="slideshow-container">
+      <div class="mySlides4">
+        <img src="https://friendsofthevaldeserec.org/_files/2022/06/zakk-bridge-crop-scaled.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides4">
+        <img src="/files/landmarks/bridgemap.png" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Red Meadow</h1>
+
+    <p>This meadow, inbetween the Red and Pink trail often contains deer or rabbits.</p>
+    <div class="slideshow-container">
+      <div class="mySlides5">
+        <img src="/files/meadow.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides5">
+        <img src="/files/landmarks/meadowmap.png" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 5)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 5)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Beaver Dams</h1>
+
+    <p>Along the hoyle creek trail Beavers are suspected to have multiple dams.</p>
+    <p>This picture below is thought to be a beaver dam.</p>
+    <p>Along the Hoyle Creek trail there are many cone shaped cuts from beavers.</p>
+    <div class="slideshow-container">
+      <div class="mySlides6">
+        <img src="/files/beaver.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides6">
+        <img src="/files/landmarks/beaver2.jpg" style="width:100%">
+      </div>
+      <div class="mySlides6">
+        <img src="/files/landmarks/beavermap.png" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1, 6)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 6)">&#10095;</a>
+    </div>
+
+    <p></p>
+    <h1>Lake Rhodhiss</h1>
+
+    <p>Lake Rhodhiss is a part of the Catawba River.</p>
+    <p>Between the Meditation Point and the Suspension Bridge is a large cove with little wake.</p>
+    <p>McGalliard Creek drains into Lake Rhodhiss.</p>
+    <p>You can check the water level on the Duke Energy site or see the history of the lake level over several years.</p>
+    <p></p>
+    <div class="slideshow-container">
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss1.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss2.jpeg" style="width:100%">
+      </div>
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss3.jpeg" style="width:100%">
+      </div>
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss4.JPG" style="width:100%">
+      </div>
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss5.jpeg" style="width:100%">
+      </div>
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss6.JPG" style="width:100%">
+      </div>
+      <div class="mySlides7">
+        <img src="/files/landmarks/rhodhiss7.jpg" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 7)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 7)">&#10095;</a>
+    </div>
+
+    <p></p>
+    <h1>Hoyle Creek and Amenities</h1>
+
+    <p>Hoyle Creek (HC) is a creek running from Exit 111 to Childrens Park to Lakeside Park into a Cove in Lake Rhodhiss
+      by Draughn High School.</p>
+    <p>Lakeside Park's Hoyle Creek Trail runs from Lovelady Rd and along Lake Rhodhiss Drive and stops where the creek
+      goes under the road. You can continue following Hoyle Creek on the Draughn High School Trail System and visit
+      other creeks too.</p>
+    <p>Micol Creek merges into Hoyle Creek along with the creek that runs along-side Outer Creek Connector.</p>
+    <p>Hoyle Creek is known to have drastically different water levels throughout the year and rains raise it 6-10 feet.
+    </p>
+    <h1>Rock Overlook</h1>
+
+    <p>This overlook along Hoyle Creek looks over Hoyle Creek from 100 feet up. There is a rock sitting area and a bench
+      (in progress) looking down at the water.</p>
+    <h1>Rest Area</h1>
+
+    <p>This Rest area along Hoyle Creek has a picnic table, wooden seats and benches.</p>
+    <p>There is access to Hoyle Creek and Hobble Island below.</p>
+    <h1>Creek Access</h1>
+
+    <p>The best creek access is below the Hoyle Creek Rest Area. A trail will take you down to the water where there is
+      a sandy beach on both sides of the creek.</p>
+    <p>You can access Hobble Island right across the water.</p>
+    <p>A bench is along the trail looking at a small waterfall (in progress).</p>
+
+    <div class="slideshow-container">
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreek1.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreek2.jpg" style="width:100%">
+      </div>
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreek3.JPG" style="width:100%">
+      </div>
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreek4.jpg" style="width:100%">
+      </div>
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreek5.jpg" style="width:100%">
+      </div>
+      <div class="mySlides8">
+        <img src="/files/landmarks/hoylecreekmap.JPG" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1, 8)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 8)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Hobble Island</h1>
+    <p>Hobble Island is a 15 Acre section of VLP surrounded by Hoyle Creek and Lake Rhodhiss Dr.</p>
+    <p>The best entrance to Hobble Island is from the Hoyle Creek Rest Area / Creek Access</p>
+    <p>Hobble Island gets it's name from the vast amount of Dog Hobble found on it.</p>
+    <p></p>
+    <div class="slideshow-container">
+      <div class="mySlides9">
+        <img src="/files/landmarks/hobbleisland1.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides9">
+        <img src="/files/landmarks/hobbleisland2.jpg" style="width:100%">
+      </div>
+      <div class="mySlides9">
+        <img src="/files/landmarks/hobbleislandmap.png" style="width:100%">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 9)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 9)">&#10095;</a>
+    </div>
+    <p></p>
+    <h1>Parking Areas</h1>
+
+    <p>You can enter Lakeside Park through 3 places.</p>
+    <p>The main parking area at the end of Lake Rhodhiss Dr.</p>
+    <p>McGalliard Falls and walking the Greenway and crossing the bridge/pipe.</p>
+    <p>The Intersection of Lovelady/Lake Rhodhiss Drive by walking the Hoyle Creek Trail.</p>
+    <img src="/files/landmarks/parkingmap.JPG" style="width:100%">
+    <p></p>
+
+    <script>
+      var slideIndex = [1,1,1,1,1,1,1,1,1];
+      var slideId = ["mySlides0", "mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5", "mySlides6", "mySlides7", "mySlides8", "mySlides9"]
+      showSlides(1, 0);
+      showSlides(1, 1);
+      showSlides(1, 2);
+      showSlides(1, 3);
+      showSlides(1, 4);
+      showSlides(1, 5);
+      showSlides(1, 6);
+      showSlides(1, 7);
+      showSlides(1, 8);
+      showSlides(1, 9);
+
+
+      function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
+      }
+
+      function showSlides(n, no) {
+        var i;
+      
+        var x = document.getElementsByClassName(slideId[no]);
+        if (n > x.length) { slideIndex[no] = 1 }
+        if (n < 1) { slideIndex[no] = x.length }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+       
+        x[slideIndex[no] - 1].style.display = "block";
+
+      }
+    </script>
+  </main>
+
+
+  <p></p>
+
+</body>
+
+</html>

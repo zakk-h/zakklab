@@ -1,0 +1,9 @@
+Template: main
+Logo: /apple-touch-icon.png
+Menu:
+	<i class="fas fa-home"></i> Home: '/'
+	<i class="fas fa-camera"></i> Photography: '/photography/'
+	<i class="fas fa-tree"></i> Lakeside Park: '/vlp/'
+	<i class="fas fa-video"></i> Interviews: '/interviews/'
+	<i class="fas fa-question-circle"></i> About: '/about'
+

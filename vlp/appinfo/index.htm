@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Installing the App</title>
+<style>
+body { background-image: none; }
+.tab-content {
+	padding: 30px 15px;
+	min-height: 300px;
+}
+.appbtns a {margin:10px; width:280px;}
+.appbtns>a>i {margin-right:8px;}
+</style>
+
+<script>
+// tabs are demonstrated at https://www.w3schools.com/bootstrap4/bootstrap_navs.asp
+// activating another tab via script is shown at https://www.w3schools.com/bootstrap/bootstrap_ref_js_tab.asp
+
+
+$(function() {
+	// make an attempt to identify the user device, and show the corresponding tab
+	if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform)) {
+		$('.nav-tabs a[href="#pwaAddIOS"]').tab('show')
+	} else if (navigator.userAgent.match(/SAMSUNG|SGH-[I|N|T]|GT-[I|P|N]|SM-[N|P|T|Z|G]|SHV-E|SCH-[I|J|R|S]|SPH-L/i)) {
+		$('.nav-tabs a[href="#pwaAddSamsung"]').tab('show')
+	} else if (navigator.userAgent.match(/android/i)) {
+		$('.nav-tabs a[href="#pwaAddAndroid"]').tab('show')
+	} else {
+		$('.nav-tabs a[href="#pwaAddDesktop"]').tab('show')
+	}
+});
+</script>
+</head>
+<body>
+<h2>The Interactive Park App</h2>
+<p></p>
+<p>This cross-platform app with full offline functionality can be used inside the park bounds as a visual of the printed trail maps, but most importantly, it can be used interactively to show your location on the map. There are also additional features like a measuring tool to find distances of trails, the ability to change the overlay map to a satellite image, the park plan, a contour map, or another style. There are also clickable icons on the map where you can learn more information about a destination. The menu features information on things like trails, the history of the park, and links for park wildlife, the lake level, and more.</p>
+<div class="appbtns text-center">
+  <a href="https://zakklab.valdese.info/vlp/app" class="btn btn-primary" target="_blank"><i class="fas fa-external-link-alt"></i> Open the App</a>
+  </div>
+  
+  <p>Below is an installation guide to add it to your homescreen instead of being in the browser:</p>
+
+
+  <ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pwaAddDesktop">Desktop</a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pwaAddIOS">iOS</a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pwaAddAndroid">Android</a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pwaAddSamsung">Samsung</a></li>
+    </ul>
+
+    <div class="tab-content">
+    <div class="tab-pane container fade" id="pwaAddAndroid">
+    <p>The following slide shows how to install the app in Android&#39;s Chrome browser.</p>
+    <p><img class="img-fluid" src="/files/slide2.jpg" alt="Android"></p>
+    </div>
+    
+    <div class="tab-pane container fade" id="pwaAddIOS">
+    <p>Tap <img src="iosAddPWA1.gif" alt=""> then <mark>Add to Home Screen</mark></p>
+    <p><img class="img-fluid" src="/files/ios.jpg" alt="iOS"></p>
+    </div>
+    
+    <div class="tab-pane container fade" id="pwaAddDesktop">
+    <p>The following slide shows how to install the app in a typical desktop browser (Chrome).</p>
+    <p><img class="img-fluid" src="/files/slide6.jpg" alt="Desktop"></p>
+    </div>
+    
+    <div class="tab-pane container" id="pwaAddSamsung">
+    <p>The following slide shows how to install the app app in Samsung&#39;s browser.</p>
+    <p><img class="img-fluid" src="/files/slide3.jpg" alt="Samsung"></p>
+    </div>
+    </div>
+</body>
+</html>

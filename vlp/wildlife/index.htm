@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		
+		body {
+			background-color: #939698;
+			margin: 0;
+  padding: 0;
+		}
+
+		.videoWrapper {
+			position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  padding-top: 20px;
+  overflow: hidden;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    margin:auto;
+}
+
+		iframe {
+			width: 1000px;
+			height: 565px;
+		}
+
+		.video-list {
+			display: flex;
+			flex-flow: wrap;
+			justify-content: center;
+		}
+
+		.video-container {
+			padding: 10px;
+			max-width: 100%;
+			height: auto;
+		}
+
+		.video-container iframe,
+		.video-container object,
+		.video-container embed {
+			padding: 0;
+		}
+
+		.nav-tabs {
+			background-color: #FFFFFF;
+			border-color: #000000;
+		}
+
+		.tab-content {
+			color: #000000;
+			padding: 0px
+		}
+
+		.nav-tabs>li>a {
+			border: medium solid;
+		}
+
+		.nav-tabs>li>a:hover {
+			background-color: #1C75B6 !important;
+			border: medium none;
+			border-radius: 0;
+			color: #ffffff !important;
+		}
+
+		.active {
+			color: white !important;
+			background-color: gray !important;
+		}
+
+		#photos {
+			/* Prevent vertical gaps */
+			line-height: 0;
+			-webkit-column-count: 4;
+			-webkit-column-gap: 0px;
+			-moz-column-count: 4;
+			-moz-column-gap: 0px;
+			column-count: 4;
+			column-gap: 0px;
+		}
+
+		#photos img {
+			/* Just in case there are inline attributes */
+			width: 100% !important;
+			height: auto !important;
+		}
+
+		@media (max-width: 2000px) {
+			#photos {
+				-moz-column-count: 3;
+				-webkit-column-count: 3;
+				column-count: 3;
+			}
+		}
+
+		@media (max-width: 1000px) {
+			#photos {
+				-moz-column-count: 2;
+				-webkit-column-count: 2;
+				column-count: 2;
+			}
+		}
+
+		@media (max-width: 600px) {
+			#photos {
+				-moz-column-count: 1;
+				-webkit-column-count: 1;
+				column-count: 1;
+			}
+		}
+
+		@media screen and (max-width: 512px) {
+			iframe {
+				max-width: 100% !important;
+				width: auto !important;
+				height: auto !important;
+			}
+		}
+
+		#myBtn {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Fixed/sticky position */
+			bottom: 20px;
+			/* Place the button at the bottom of the page */
+			right: 30px;
+			/* Place the button 30px from the right */
+			z-index: 99;
+			/* Make sure it does not overlap */
+			border: solid;
+			/* Remove borders */
+			outline: none;
+			/* Remove outline */
+			background-color: #2272AD;
+			/* Set a background color */
+			color: white;
+			/* Text color */
+			cursor: pointer;
+			/* Add a mouse pointer on hover */
+			padding: 15px;
+			/* Some padding */
+			border-radius: 10px;
+			/* Rounded corners */
+			font-size: 18px;
+			/* Increase font size */
+		}
+
+		#myBtn:hover {
+			background-color: #000000;
+			/* Add a dark
+			-grey background on hover */
+		}
+		table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: #383D31;
+  color: white;
+}
+	</style>
+	<script>
+
+
+
+
+
+		$('.nav-tabs a[href="#About"]').tab('show')
+
+		//Get the button:
+		mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () { scrollFunction() };
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
+		$(function () {
+			var hash = window.location.hash;
+			hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+			$('.nav-tabs a').click(function (e) {
+				$(this).tab('show');
+				var scrollmem = $('body').scrollTop();
+				window.location.hash = this.hash;
+				$('html,body').scrollTop(scrollmem);
+			});
+		});
+	</script>
+	<title>Wildlife Sightings at VLP</title>
+</head>
+
+
+
+
+<body style="background-color:powderblue;">
+
+	<h1>Wildlife Sightings at VLP</h1>
+	<p></p>
+
+	<p></p>
+	<h5>Choose a species below to see pictures and videos of:</h5>
+	<!-- Showing alert -->
+	<div id="alert" class="alert alert-info">
+		Wildlife Content is loading. This may take a while depending on your internet connection.
+	</div>
+	<script type="text/javascript">
+		setTimeout(function () {
+
+			// Closing the alert 
+			$('#alert').alert('close');
+		}, 5000); 
+	</script>
+
+	<p></p>
+
+	<ul class="nav nav-tabs nav-justified" role="tablist">
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#About">About</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Mystery">Mystery</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Bear">Bear</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Beaver">Beaver</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Bee">Bee</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Bird">Birds</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Bobcat">Bobcat</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Butterfly">Butterfly</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Coyote">Coyote</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Crow">Crow</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Deer">Deer</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Domestic">Domestic</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Dragonfly">Dragonfly</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Egret">Egret</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Fox">Fox</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Frog">Frog</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Goose">Goose</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Groundhog">Groundhog</a></li>		
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Heron">Heron</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Lizard">Lizard</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Millipede">Millipede</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Mink">Mink</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Nutria">Nutria</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Otter">Otter</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Owl">Owls</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Possum">Possum</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Rabbit">Rabbit</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Raccoon">Raccoon</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Skunk">Skunk</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Squirrel">Squirrel</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Turkey">Turkey</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Turtle">Turtle</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane container fade" id="About">
+			<a style="color:white">
+				<p></p>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>Below is information about Valdese Lakeside Park wildlife.</Strong></font>
+				<br><br>
+				<h5>Since Early 2020, Trail Cameras on the 325 Acre Valdese Lakeside Park property have been capturing wildlife scenes.</h5>
+				<h5>This site is home to all the different species at Lakeside Park, with photos and videos on each tab.</h5>
+				<br>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>Below is a playlist of all Wildlife Videos.</Strong></font>
+				<p></p>
+				<h5>Navigate through the different videos by clicking the Playlist Button on the video - Example: 				<img src="/files/wildlife/Playlist.jpg" alt="Playlist Button" style="width:75px;height:75px;">
+				</h5>
+
+				<p></p>
+				
+					<div class="videoWrapper">
+						<iframe width="560" height ="349" src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8_v5CxJ5XGqjFhnslDSzZA" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+					
+				</div>
+				<a href = " https://youtube.com/playlist?list=PLMbeemD8NX-8_v5CxJ5XGqjFhnslDSzZA"> <h6>Link to Playlist</h6></a>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>Animals recorded on video:</Strong> </font>
+				<h6>Deer, Beaver, Bear, Blue Heron, Turkey, Raccoon, Squirrel, Owl, Fox (Red and Gray), Skunk (and All-Black variant), Mink, Coyote, Bobcat, Canadian Goose, Otter, Possum, Nutria (Swamp Rat), Spider, Rabbit, Mouse, Crows, Groundhog, Turtle</h6>
+				<br>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>All animals spotted in the park have been captured on video. Most recently, we have captured Bear and Otter.</Strong> </font>
+				<h6></h6>
+				<br>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>Below is more information on Wildlife Cameras</Strong> </font>
+<br>
+				<h6>Through local donations and investments, we have a collection of different Wildlife Cameras at Valdese Lakeside Park. These include Campark T45s and T80s, Moultrie M-50s, and Browing Dark Ops.</h6>
+				<h2></h2>
+				<br>
+				<font size = "5.5" face = "arial" color = "black"><Strong>Here is an overview</Strong></font>
+				<br>
+				<h6>Scale: 1-5 with 1 being the lowest and 5 being the highest.</h6>
+				<br>
+				<div style="overflow-x:auto;">
+
+				<table id="t01">
+					<tr>
+						<th>Camera</th>
+						<th>Campark T-45</th>
+						<th>Campark T-80</th> 
+						<th>Browing Dark Ops Pro XD</th>
+						<th>Moultrie M-50</th>
+
+					</tr>
+					<tr>
+						<th>Day Wildlife Quality</th>
+						<th>4</th>
+						<th>5</th> 
+						<th>5</th>
+						<th>5</th>
+					</tr>
+					<tr>
+						<th>Night Wildlife Quality</th>
+						<th>2</th>
+						<th>3</th> 
+						<th>4</th>
+						<th>4</th>
+					</tr>
+					<tr>
+						<th>Night Recording Length</th>
+						<th>Infinite</th>
+						<th>Infinite</th> 
+						<th>20 Sec</th>
+						<th>30 Sec</th>
+
+					</tr>
+					<tr>
+						<th>User Inferface + Accessibility</th>
+						<th>3 - Color Screen, easy to use UI. Can view camera lens, but cannot use to guide mount position</th>
+						<th>5 - Color Screen, easy to use UI. Local Wifi-Connection to download content and guide mount position through smartphone</th> 
+						<th>4 - Color Screen, good UI. Can view camera lens and use it to guide mount position.</th>
+						<th>1 - Non-Color Screen, acceptable UI. Cannot view camera lens.</th>
+
+					</tr>
+					<tr>
+						<th>Trigger Speed and Range</th>
+						<th>0.3 sec, 65ft</th>
+						<th>0.3 sec, 65ft</th> 
+						<th>0.15 sec, 80ft</th>
+						<th>0.30 sec, 80ft</th>
+					</tr>
+				
+					<tr>
+						<th>Storage Medium</th>
+						<th>Micro SD up to 32GB</th>
+						<th>SD up to 32GB</th> 
+						<th>SD up to 512GB</th>
+						<th>SD up to 32GB</th>
+					</tr>
+					<tr>
+						<th>Video Format</th>
+						<th>AVI - 1 (Unusual and Large Files)</th>
+						<th>MP4 - 5</th> 
+						<th>MP4 - 5</th>
+						<th>MOV - 4</th>
+					</tr>
+					<tr>
+						<th>Video Aspect Ratio</th>
+						<th>4/3 - 4</th>
+						<th>4/3 - 4</th> 
+						<th>16/9 - 5</th>
+						<th>16/9 - 5</th>
+					</tr>
+				
+					<tr>
+				
+						<th>Batteries</th>
+						<th>4 or 8</th>
+						<th>8</th> 
+						<th>6</th>
+						<th>8</th>
+
+					</tr>
+					<tr>
+				
+						<th>Lock Compatibility</th>
+						<th>Few</th>
+						<th>Most</th> 
+						<th>Most</th>
+						<th>Most</th>
+					</tr>
+					<tr>
+				
+						<th>Accessory Compatibility</th>
+						<th>Solar Panel</th>
+						<th>Solar Panel, Remote Control WiFi Button</th> 
+						<th>Solar Panel, Battery Pack, Tree Mount, Security Box</th>
+						<th>Solar Panel, Security Box</th>
+					</tr>
+					<tr>
+				
+						<th>Cellular Compatibility</th>
+						<th>No</th>
+						<th>No</th> 
+						<th>No</th>
+						<th>Yes</th>
+					</tr>
+					<tr>
+				
+				<th>Pricing</th>
+				<th>$50 with extra bonuses</th>
+				<th>$90 with extra bonuses</th> 
+				<th>$170</th>
+				<th>$220</th>
+
+			</tr>
+			<tr>
+				
+				<th>Recommendation Factoring in Price?</th>
+				<th>4 - Cheap Option</th>
+				<th>5 - Best Value</th> 
+				<th>4 - Best Night</th>
+				<th>2 - Too Expensive</th>
+
+			</tr>
+				
+				  </table>
+				  </div>
+				<h1>-----------------</h1>
+				<font size = "5.5" face = "arial" color = "black"> <Strong>Overview Videos</Strong> </font>
+				<div class="videoWrapper">
+							<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9p-n1rrKpRpFGoRTpW55m7" frameborder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+					
+					</div>
+				<p></p>
+			</a>
+	
+			 
+		</div>
+		<div class="tab-pane container fade" id="Mystery">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+<p></p>
+<font size = "5.5" face = "arial" color = "black"> <Strong>Below are animals that we need help identifying.</Strong></font>
+
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8hH8jZrNddQO28hkRjeIEX" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+					
+				</div>
+				<p></p>
+				<h6>If you know what one of these animals are, fill out this form to let us know.</h6>
+<a href="https://forms.gle/heeqtxVYmwpzwQA7A" target="_blank"><h6>If you cannot view the form, click here to open in a new tab</h6></a>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmDv_6wlStEjOU8EPOfLOFOB37tK8ewG6XyN1ty9ih-_k2qw/viewform?embedded=true" width="2000" height="1410" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Beaver">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+<p></p>
+				<h6>Below are Beavers, their cuts, and suspected homes found at Valdese Lakeside Park. These are found along Hoyle Creek or McGalliard Creek, and also in wetlands by Draughn High School.</h6>
+				<p></p>
+			<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9yvUwZH7i2HE6d5aXVr-K9" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+
+					
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/beaver.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/b2.jpg" alt="Wildlife">
+
+					<img class="flex-container" src="/files/wildlife/b1.jpg" alt="Wildlife">
+
+					<img class="flex-container" src="/files/wildlife/b3.jpg" alt="Wildlife">
+
+					<img class="flex-container" src="/files/wildlife/b4.jpg" alt="Wildlife">
+
+					<img class="flex-container" src="/files/wildlife/b5.jpg" alt="Wildlife">
+
+					<img class="flex-container" src="/files/wildlife/b6.jpg" alt="Wildlife">
+
+					</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Skunk">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+<p></p>
+				<h6>Below are Skunks found at Valdese Lakeside Park. Currently we have seen Striped Skunk and a Melanistic (All-Black) Skunk.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-_9RW40M5j4IQGMSuZtdb4U" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/skunk.jpg" alt="Wildlife">
+					</section>
+				<p></p>
+			</a>
+		</div>
+<div class="tab-pane container fade" id="Domestic">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+<p></p>
+				<h6>Below are Domestic Animals (Dogs and Cats) found at Valdese Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8TFocL_p4FhFtTziYlfucg" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+							<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Bear">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+<p></p>
+				<h6>Below are Bear found at Valdese Lakeside Park. They are most frequently found towards the west of the property and away from the Main Entrance.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9jgJbTysLULa0sirRjJXlI" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+							<p></p>
+			</a>
+		</div>		
+
+		<div class="tab-pane container fade" id="Groundhog">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+<p></p>
+				<h6>Below are Groundhogs found at Valdese Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-808T0_tBXpV_LTWNp397lG" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Squirrel">
+			<a style="color:white">
+				<p></p>
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+<p></p>
+				<h6>Below are Squirrels found at Valdese Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9Yn4Huz8pZtdBgOmxtCYkL" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Frog">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are Frogs and Toads (a member of the Frog family) found at Lakeside Park.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/amph1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/amph2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/amph4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/ft2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/amph3.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Bee">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are Bees and their Nests found in the Cove, Yellow Trail, the Power Lines, and elsewhere.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/bee1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/addbee1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/addbee2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/addbee3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/addbee4.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Bobcat">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+<p></p>
+				<h6>Below are Bobcats found at Valdese Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8va7cH4Nb9lGeG2vbjZBKk" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Bird">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are common birds found at Lakeside Park. Other birds not listed here are: The Blue Heron,
+					Intermediate Egret, Owls, Crows, and Geese.</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--Oz8IpugDx1taEUOG07VM9" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+					
+				</div>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/bird1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/bird2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/bird3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/bird4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/bird5.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron17.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron18.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Butterfly">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are various Butterflies found at Lakeside Park.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/butterfly1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/b99.jpeg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly5.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly6.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly7.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly8.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/butterfly9.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/b100.jpeg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Millipede">
+			<a style="color:white">
+				<p></p>
+				<h6>Below is a Millipede found at Lakeside Park.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/m1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/caterpillar1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/c1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/c2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/c3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/centipede2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/cm2.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Mink">
+			<a style="color:white">
+				<p></p>
+				<h6>Below is a Mink found at Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-_rnk-LGBptPhknrFbGrUH2" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+			
+			</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Nutria">
+			<a style="color:white">
+				<p></p>
+				<h6>Below is a Nutria found at Lakeside Park.</h6>
+				<p></p>
+				<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--XNqy7BmE-qtwkZf4vdtz0" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+			
+			</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Otter">
+			<a style="color:white">
+				<p></p>
+				<h6>Below is an Otter found at Lakeside Park. Otters are often spotted in the McGalliard Creek Cove, but also Hoyle Creek.</h6>
+				<p></p>
+				<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8lTk7c6gjFQ8WdwNOTtQbD" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+			
+			</div>
+				<p></p>
+			</a>
+<section id="photos">
+					<img class="flex-container" src="/files/wildlife/otter.png" alt="Wildlife">
+			
+					</section>
+
+		</div>
+		<div class="tab-pane container" id="Dragonfly">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are Dragonflies found at the Greenway and the Fox Den by the water.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/dragonfly1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/dragonfly2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/dragonfly3.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Egret">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are Intermediate Egret found at Valdese Lakeside Park. The Egret is often spotted down past
+					the Fox Den on the sandbar in the middle of the water.
+				</h6>
+				<p></p>
+				<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9aMtGcaljHd7hSEBbO5SXI" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				
+				
+			</div>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/egret1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/egret2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/egret3.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Heron">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are Blue Heron found at Valdese Lakeside Park. Several Blue Heron live around the Cove. They
+					can often be spotted flying out by Meditation Point or over across the water on down trees by the
+					Fox Den.
+				</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube.com/embed/playlist?list=PLMbeemD8NX--VfhagvUi-wvRs2Ouu5IiO" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+				</div>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/heron1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron5.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron6.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron8.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron9.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron10.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron11.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron12.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron13.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron14.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron15.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron16.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron19.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron20.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/heron7.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Lizard">
+			<a style="color:white">
+				<p></p>
+				<h6>Below is the Eastern Fence Lizard often found on the Red Outer Loop Trail.</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/lizard2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/lizard1.jpg" alt="Wildlife">
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container" id="Turtle">
+			<a style="color:white">
+				<p></p>
+				<h6>Below are a variety of Turtles. These are very common around the park but can mainly be found along
+					Hoyle Creek and the Fox Den or across the water when kayaking.
+				</h6>
+				<p></p>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/moreturtle1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/moreturtle2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/moreturtle3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/moreturtle4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/turtle1.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/turtle2.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/turtle3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/turtle5.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/turtle4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/addturtle3.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/addturtle4.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/addturtle5.jpg" alt="Wildlife">
+					<img class="flex-container" src="/files/wildlife/t18.jpg" alt="Wildlife">
+
+				</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Raccoon">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<h6>Below are Raccoons in both Night and Day</h6>
+<p></p>				
+<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--a0oZs-fKn8yOW_9WjaXsa" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Possum">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8kK1EB_9iXrUs_i42D6RhR" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+				
+				</div>
+				<section id="photos">
+					<img class="flex-container" src="/files/wildlife/possum.jpg" alt="Wildlife">
+					</section>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Rabbit">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8r11KB8tzwsjw5ZbB_t6LM" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+				
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Owl">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9z7KZmCFOxqqf9vNcOffZ3" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Turkey">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-85e_YT6PVhxHBxg2Mde-jt" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				
+				</div>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Heron 2 - Put at top of Heron section">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Fox">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<h1>Featured Fox Playlist</h1>
+				<div class="videoWrapper">
+						<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8hHtPmjwWEBmNOs8DqioID" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></div>
+						
+							<h1>All Fox Playlist</h1>
+
+							<div class="videoWrapper">
+								<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--CZBZ5ncGr4V5CEV4qevrZ" frameborder="0"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe></div>
+						
+									<h1>Red Fox Playlist</h1>
+							
+							<div class="videoWrapper">
+								<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--HhPFQJuUc8WA8RTZ31_No" frameborder="0"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe></div>
+
+									<h1>Gray Fox Playlist</h1>
+							
+							<div class="videoWrapper">
+								<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-8dVlirjOGQCvl9rENgWcbI" frameborder="0"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe></div>
+					
+					
+					<p></p>
+			</a>
+		</div>
+		<div class="tab-pane container fade" id="Coyote">
+			<a style="color:white">
+				<p></p>
+				<h6>Wildlife Camera Videos</h6>
+				<p></p>
+				<h1>Featured Coyote Playlist</h1>
+		<div class="videoWrapper">
+				<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--D0izwfcRCgXI2OU90gMnr" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			
+		</div>
+		<h1>All Coyote Playlist</h1>
+		<p></p>
+				<div class="videoWrapper">
+				<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-92BVpCg4AVXwSe6ia-tgR8" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+		
+		</div>
+		<p></p>
+		</a>
+	</div>
+	<div class="tab-pane container fade" id="Coyote1">
+		<a style="color:white">
+			<p></p>
+			<h6>Wildlife Camera Videos</h6>
+			<p></p>
+			<div class="video-list">
+				<div class="video-container">
+					<iframe src="https://www.youtube-nocookie.com/embed/rDUbpPA_BYI" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+			<p></p>
+		</a>
+	</div>
+	<div class="tab-pane container fade" id="Fox1">
+		<a style="color:white">
+			<p></p>
+			<h6>Wildlife Camera Videos</h6>
+			<p></p>
+			<div class="video-list">
+				<div class="video-container">
+					<iframe src="https://www.youtube-nocookie.com/embed/rDUbpPA_BYI" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+			<p></p>
+		</a>
+	</div>
+	<div class="tab-pane container fade" id="Goose">
+		<a style="color:white">
+			<p></p>
+			<h6>Wildlife Camera Videos</h6>
+			<p></p>
+			<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9Ku0QkC9Co6TvwO8H-Bagi" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+			
+			</div>
+			<p></p>
+		</a>
+	</div>
+	<div class="tab-pane container fade" id="Crow">
+		<a style="color:white">
+			<p></p>
+			<h6>Wildlife Camera Videos</h6>
+			<p></p>
+			<div class="videoWrapper">
+					<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--id9c2__APa716k_jweONY" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+			
+				
+			</div>
+			<p></p>
+		</a>
+	</div>
+	<div class="tab-pane container fade" id="Deer">
+		<a style="color:white">
+			<p></p>
+			<h6>Wildlife Camera Videos</h6>
+			<p></p>
+		</a>
+		
+		<h1>Featured Deer Playlist</h1>
+		<div class="videoWrapper">
+				<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX-9Sm-v0jRnyYMGs9XMEGWTs" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			
+		</div>
+		<p></p>
+		<h1>All Deer Playlist</h1>
+
+		<div class="videoWrapper">
+				<iframe src="https://www.youtube-nocookie.com/embed/playlist?list=PLMbeemD8NX--bOtyT80ha3OlXVBP84-7Q" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			
+		</div>
+		<p></p>
+	</div>
+	</div>
+	<h5>You have reached the end of the content for this tab. Choose another.</h5>
+	<h5>  </h5>
+	<br><br>
+	
+	<button onclick="topFunction()" id="myBtn" title="Go to Top">Go to Top</button>
+
+</body>
+
+</html>
